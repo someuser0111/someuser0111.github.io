@@ -1,2 +1,2 @@
 # someuser01111.github.io
-Frisbeegolf stats
+Frisbeegolf stats hosted on github pages
