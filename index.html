@@ -5,32 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FrisbeeStats</title>
+      <!-- cleaner date handling with luxon -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.3.0/luxon.min.js" charset="utf-8"></script>
+      
 </head>
 <body>
     <h1>Stats are incoming</h1>
-    <a href="second.html">Go to second page</a>
-    <a href="./data/secondJuli.json">Andre juli raw view</a>
-    <a href="./data/lynghaug.json">Lynghaug spec raw view</a>
-    <a href="lynghaugcopy.json">Lynghaug <bold>COPY</bold>spec raw view</a>
-    <a href="plot.html">Plot</a>
+    <div>
+      <select  id="trackSelecter">
+        <option value="Lynghaug">Lynghaug</option>
+        <option value="Åsane">Åsane</option>
+      </select>
+      <input type="date" id="datepicker" name="datepicker" value="2018-07-22" min="2023-07-02" max="2030-07-02">
+    <a id = "linkToPlot" href="plot.html">Gå til bane</a>
+    </div>
+
+  <p id="demo"></p>
 </body>
+<script src="./scripts/navigation.js"></script>
 <script>
+
 </script>
 <style>
-    
+  body{
+    background-color: lightgray;
+  }
+    .navbar{
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      width: 20%;
+      border: 1px solid black;
+      
+    }
+    .navbar > a {
+      padding: 10px;
+    }
+.selector{
+  display: flex;
+  flex-direction: row;
+};
 
+*{
+  text-decoration: none;
+}
 a {
-  background-color: red;
+  text-decoration: none;
   box-shadow: 0 5px 0 darkred;
-  color: white;
+  color: black;
   padding: 1em 1.5em;
   position: relative;
-  text-decoration: none;
   text-transform: uppercase;
 }
 
 a:hover {
-  background-color: #ce0606;
+  background-color: #71def7;
 }
 
 a:active {
