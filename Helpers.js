@@ -1,24 +1,7 @@
-const url ="https://someuser0111.github.io/data/history/02072023.json";
-const currentTrack = "Lynghaug";
-const layoutConfig ={
-    margin: { t: 0 },
-    xaxis:{
-        tickmode: "linear",
-        // start of xaxis
-        tick0 : 0,
-        // axis step
-        dtick: 1
-    },
-    yaxis:{
-        tickmode: "linear",
-        // start of xaxis
-        tick0 : 0,
-        // axis step
-        dtick: 1
-    }
-  };
 
-const fetchDataAndTransformToCoordinates = async (url) => {
+
+export const 
+fetchDataAndTransformToCoordinates = async (url) => {
     try{
         const response = await fetch(url);
         const data = await response.json();  
@@ -28,7 +11,8 @@ const fetchDataAndTransformToCoordinates = async (url) => {
         console.error(`An error occured when fetching from ${this.url}. Message: ${error}`)
     }
   }
-const getScoresPerPersonAsCoordinates = (data, currentTrack, names) => {
+  export const 
+getScoresPerPersonAsCoordinates = (data, currentTrack, names) => {
   return names.map((name) => {
     const scores = data[name][currentTrack]["scores"];
     return {
@@ -42,7 +26,7 @@ const getScoresPerPersonAsCoordinates = (data, currentTrack, names) => {
 }
 
 // personCoordinates object format: Array<{name:string,coordinates:{x:arr<int>,y:arr<int>}}>
-const toPlotlyDataFormat = (personCoordinates)=>{
+export const toPlotlyDataFormat = (personCoordinates)=>{
     return personCoordinates.map(personCoords =>{
         return {
             x: personCoords["coordinates"]["x"],
@@ -54,12 +38,3 @@ const toPlotlyDataFormat = (personCoordinates)=>{
         }
     })
 }
-
-document.addEventListener("DOMContentLoaded", async () => {
-  const coords = await fetchDataAndTransformToCoordinates(url);
-  const plotlyData = await toPlotlyDataFormat(coords);
-  const scatter = document.getElementById("tester");
-  Plotly.newPlot(scatter, plotlyData, layoutConfig);
-    });
-
-
