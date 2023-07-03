@@ -6,27 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FrisbeeStats</title>
       <!-- cleaner date handling with luxon -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.3.0/luxon.min.js" charset="utf-8"></script>
-      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.3.0/luxon.min.js" charset="utf-8"></script>  
 </head>
 <body>
+<button id = "check" onclick="check()">CHECK</button>
+  
     <h1>Stats are incoming</h1>
     <div>
-      <select  id="trackSelecter">
-        <option value="Lynghaug">Lynghaug</option>
-        <option value="Åsane">Åsane</option>
+    
+      <div id = "trackselecter">
+        <p>Baner</p>
+        <p id="åsane" onclick="addÅsane()">Åsane</p>
+        <p id="lynghaug" onclick="addLynghaug()">Lynghaug</p>
+      </div>
+    
       </select>
-      <input type="date" id="datepicker" name="datepicker" value="2018-07-22" min="2023-07-02" max="2030-07-02">
-    <a id = "linkToPlot" href="plot.html">Gå til bane</a>
+      <input type="date" id="datepicker" name="datepicker" value="----------" min="2023-07-01" max="2030-07-02">
     </div>
+    <button id="goToLink">Vis oversikt</button>
 
-  <p id="demo"></p>
 </body>
 <script src="./scripts/navigation.js"></script>
-<script>
-
-</script>
 <style>
+  /* Reset button styles to remove default appearance */
+#check{
+  display: none;
+}
+#trackselecter{
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#åsane {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10%;
+  background-color: gray;
+}
+/* #åsane.clicked{
+  background-color: red;
+}
+
+#lynghaug.clicked {
+  background-color: red;
+} */
+#lynghaug {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10%;
+  background-color: gray;
+}
   body{
     background-color: lightgray;
   }
